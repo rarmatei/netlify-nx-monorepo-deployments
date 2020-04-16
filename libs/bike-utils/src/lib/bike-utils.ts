@@ -1,3 +1,3 @@
 export function validateBikeSerialNumber(serialNumber: number) {
-  return serialNumber === 1234567;
+  return serialNumber === 12345678;
 }

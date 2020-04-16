@@ -7,6 +7,13 @@
       "projectType": "application",
       "schematics": {},
       "architect": {
+        "deploy": {
+          "builder": "@netlify-builder/deploy:deploy",
+          "options": {
+            "outputPath": "dist/apps/bike-store",
+            "siteId": "e6a73bc7-c0cd-4374-ae88-9b379bce541f"
+          }
+        },
         "build": {
           "builder": "@nrwl/web:build",
           "options": {
@@ -117,6 +124,13 @@
       "projectType": "application",
       "schematics": {},
       "architect": {
+        "deploy": {
+          "builder": "@netlify-builder/deploy:deploy",
+          "options": {
+            "outputPath": "dist/apps/car-store",
+            "siteId": "9346dab9-5fd4-465d-9af3-a85c46f043fa"
+          }
+        },
         "build": {
           "builder": "@nrwl/web:build",
           "options": {

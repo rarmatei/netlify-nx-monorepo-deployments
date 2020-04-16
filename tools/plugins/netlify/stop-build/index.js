@@ -1,7 +1,5 @@
 module.exports = {
-  onInit: ({ utils }) => {
-    utils.build.cancelBuild(
-      `Build was cancelled because ${currentProject} was not affected by the latest changes`
-    );
+  onInit: () => {
+    console.log('Hello world from the plugin!');
   }
 };

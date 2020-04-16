@@ -2,10 +2,6 @@
   "npmScope": "transport-stores",
   "implicitDependencies": {
     "workspace.json": "*",
-    "package.json": {
-      "dependencies": "*",
-      "devDependencies": "*"
-    },
     "tsconfig.json": "*",
     "tslint.json": "*",
     "nx.json": "*"
@@ -18,5 +14,26 @@
       }
     }
   },
-  "projects": {}
+  "projects": {
+    "bike-store": {
+      "tags": []
+    },
+    "bike-store-e2e": {
+      "tags": [],
+      "implicitDependencies": ["bike-store"]
+    },
+    "car-store": {
+      "tags": []
+    },
+    "car-store-e2e": {
+      "tags": [],
+      "implicitDependencies": ["car-store"]
+    },
+    "bike-store-api": {
+      "tags": []
+    },
+    "bike-utils": {
+      "tags": []
+    }
+  }
 }

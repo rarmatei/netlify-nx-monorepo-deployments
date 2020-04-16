@@ -1,8 +1,313 @@
 {
   "version": 1,
-  "projects": {},
+  "projects": {
+    "bike-store": {
+      "root": "apps/bike-store",
+      "sourceRoot": "apps/bike-store/src",
+      "projectType": "application",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/web:build",
+          "options": {
+            "outputPath": "dist/apps/bike-store",
+            "index": "apps/bike-store/src/index.html",
+            "main": "apps/bike-store/src/main.tsx",
+            "polyfills": "apps/bike-store/src/polyfills.ts",
+            "tsConfig": "apps/bike-store/tsconfig.app.json",
+            "assets": [
+              "apps/bike-store/src/favicon.ico",
+              "apps/bike-store/src/assets"
+            ],
+            "styles": ["apps/bike-store/src/styles.css"],
+            "scripts": [],
+            "webpackConfig": "@nrwl/react/plugins/webpack"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/bike-store/src/environments/environment.ts",
+                  "with": "apps/bike-store/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/web:dev-server",
+          "options": {
+            "buildTarget": "bike-store:build",
+            "proxyConfig": "apps/bike-store/proxy.conf.json"
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "bike-store:build:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "config": "apps/bike-store/.eslintrc",
+            "tsConfig": [
+              "apps/bike-store/tsconfig.app.json",
+              "apps/bike-store/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/bike-store/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/bike-store/jest.config.js",
+            "tsConfig": "apps/bike-store/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "bike-store-e2e": {
+      "root": "apps/bike-store-e2e",
+      "sourceRoot": "apps/bike-store-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/bike-store-e2e/cypress.json",
+            "tsConfig": "apps/bike-store-e2e/tsconfig.e2e.json",
+            "devServerTarget": "bike-store:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "bike-store:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "config": "apps/bike-store-e2e/.eslintrc",
+            "tsConfig": ["apps/bike-store-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/bike-store-e2e/**"]
+          }
+        }
+      }
+    },
+    "car-store": {
+      "root": "apps/car-store",
+      "sourceRoot": "apps/car-store/src",
+      "projectType": "application",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/web:build",
+          "options": {
+            "outputPath": "dist/apps/car-store",
+            "index": "apps/car-store/src/index.html",
+            "main": "apps/car-store/src/main.tsx",
+            "polyfills": "apps/car-store/src/polyfills.ts",
+            "tsConfig": "apps/car-store/tsconfig.app.json",
+            "assets": [
+              "apps/car-store/src/favicon.ico",
+              "apps/car-store/src/assets"
+            ],
+            "styles": ["apps/car-store/src/styles.css"],
+            "scripts": [],
+            "webpackConfig": "@nrwl/react/plugins/webpack"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/car-store/src/environments/environment.ts",
+                  "with": "apps/car-store/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/web:dev-server",
+          "options": {
+            "buildTarget": "car-store:build"
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "car-store:build:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "config": "apps/car-store/.eslintrc",
+            "tsConfig": [
+              "apps/car-store/tsconfig.app.json",
+              "apps/car-store/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/car-store/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/car-store/jest.config.js",
+            "tsConfig": "apps/car-store/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "car-store-e2e": {
+      "root": "apps/car-store-e2e",
+      "sourceRoot": "apps/car-store-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/car-store-e2e/cypress.json",
+            "tsConfig": "apps/car-store-e2e/tsconfig.e2e.json",
+            "devServerTarget": "car-store:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "car-store:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "config": "apps/car-store-e2e/.eslintrc",
+            "tsConfig": ["apps/car-store-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/car-store-e2e/**"]
+          }
+        }
+      }
+    },
+    "bike-store-api": {
+      "root": "apps/bike-store-api",
+      "sourceRoot": "apps/bike-store-api/src",
+      "projectType": "application",
+      "prefix": "bike-store-api",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "options": {
+            "outputPath": "dist/apps/bike-store-api",
+            "main": "apps/bike-store-api/src/main.ts",
+            "tsConfig": "apps/bike-store-api/tsconfig.app.json",
+            "assets": ["apps/bike-store-api/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/bike-store-api/src/environments/environment.ts",
+                  "with": "apps/bike-store-api/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "bike-store-api:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "config": "apps/bike-store-api/.eslintrc",
+            "tsConfig": [
+              "apps/bike-store-api/tsconfig.app.json",
+              "apps/bike-store-api/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/bike-store-api/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/bike-store-api/jest.config.js",
+            "tsConfig": "apps/bike-store-api/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "bike-utils": {
+      "root": "libs/bike-utils",
+      "sourceRoot": "libs/bike-utils/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "config": "libs/bike-utils/.eslintrc",
+            "tsConfig": [
+              "libs/bike-utils/tsconfig.lib.json",
+              "libs/bike-utils/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/bike-utils/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/bike-utils/jest.config.js",
+            "tsConfig": "libs/bike-utils/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    }
+  },
   "cli": {
-    "defaultCollection": "@nrwl/workspace"
+    "defaultCollection": "@nrwl/react"
   },
   "schematics": {
     "@nrwl/workspace": {
@@ -17,9 +322,15 @@
     },
     "@nrwl/react": {
       "application": {
-        "linter": "eslint"
+        "style": "css",
+        "linter": "eslint",
+        "babel": true
+      },
+      "component": {
+        "style": "css"
       },
       "library": {
+        "style": "css",
         "linter": "eslint"
       }
     },
@@ -59,5 +370,6 @@
         "linter": "eslint"
       }
     }
-  }
+  },
+  "defaultProject": "bike-store"
 }

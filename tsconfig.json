@@ -15,7 +15,9 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@transport-stores/bike-utils": ["libs/bike-utils/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
